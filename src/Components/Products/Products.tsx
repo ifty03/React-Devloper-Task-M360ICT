@@ -96,13 +96,13 @@ const Products = () => {
           </button>
           <button
             className="bg-green-100 text-white rounded-md px-2 py-2"
-            onClick={() => navigate(`/products/${record.id}`)}
+            onClick={() => navigate(`/products/edit/${record.id}`)}
           >
             <CiEdit className="text-green-700 " />
           </button>
           <button
             className="bg-red-100 text-white rounded-md px-2 py-2"
-            onClick={()=>handleDeleteProduct(record.id)}
+            onClick={() => handleDeleteProduct(record.id)}
           >
             <RiDeleteBin6Line className="text-red-700 " />
           </button>

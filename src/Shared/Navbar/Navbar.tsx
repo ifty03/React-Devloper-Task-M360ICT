@@ -14,8 +14,8 @@ const Navbar = () => {
   const [searchVisible, setSearchVisible] = useState(false);
 
   const menuItems = [
-    { key: "home", label: "Home",path:"/" },
-    { key: "products", label: "Products", path:"/" },
+    { key: "home", label: <Link to="/">Home</Link> },
+    { key: "products", label: <Link to="/">Products</Link> },
   ];
   return (
     <Header className="bg-white px-4 h-16 flex items-center justify-between border-b border-gray-200 sticky top-0 z-50">

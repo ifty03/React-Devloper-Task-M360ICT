@@ -27,3 +27,9 @@ export interface DeleteProductResponse {
   deleted: boolean;
   isDeleted: boolean;
 }
+
+export interface CategoriesType {
+  name: string;
+  slug: string;
+  url: string;
+}

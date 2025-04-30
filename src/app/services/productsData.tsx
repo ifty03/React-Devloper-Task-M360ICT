@@ -10,17 +10,27 @@ export const productsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://dummyjson.com" }),
   tagTypes: ["Products"],
   endpoints: (builder) => ({
-
     getAllProduct: builder.query<ProductsResponse, { limit: number }>({
       query: ({ limit = 0 }) => `products?limit=${limit}`,
       providesTags: ["Products"],
     }),
 
+    getAllCategories: builder.query({
+      query: () => "/products/categories",
+    }),
 
     getProductById: builder.query({
       query: (id) => `/products/${id}`,
     }),
 
+    updateProduct: builder.mutation({
+      query: ({ id, updatedProduct }) => ({
+        url: `/products/${id}`,
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: updatedProduct,
+      }),
+    }),
 
     deleteProduct: builder.mutation<DeleteProductResponse, number>({
       query: (id) => ({
@@ -44,8 +54,8 @@ export const productsApi = createApi({
           )
         );
         try {
-          await queryFulfilled;    
-        } catch {    
+          await queryFulfilled;
+        } catch {
           patchResult.undo();
         }
       },
@@ -53,8 +63,12 @@ export const productsApi = createApi({
   }),
 });
 
+
+
 export const {
   useGetAllProductQuery,
+  useGetAllCategoriesQuery,
   useGetProductByIdQuery,
+  useUpdateProductMutation,
   useDeleteProductMutation,
 } = productsApi;
