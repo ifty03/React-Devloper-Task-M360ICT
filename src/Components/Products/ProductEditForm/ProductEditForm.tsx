@@ -126,9 +126,7 @@ const ProductEditForm = () => {
               }))}
               showSearch
               filterOption={(input, option) =>
-                (option?.label ?? "")
-                  .toLowerCase()
-                  .includes(input.toLowerCase())
+                (option?.label ?? "")===input
               }
             />
           </Form.Item>
