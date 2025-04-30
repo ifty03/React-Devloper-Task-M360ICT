@@ -27,7 +27,7 @@ const ProductEditForm = () => {
   const { id } = useParams();
   const { data, isError, isLoading } = useGetProductByIdQuery(id);
   const { data: categories } = useGetAllCategoriesQuery({ limit: 0 });
-  const [updateProduct, { data: updateData }] = useUpdateProductMutation();
+  const [updateProduct] = useUpdateProductMutation();
 
   const onFinish = async (values: ProductType) => {
     try {
