@@ -120,7 +120,7 @@ const ProductEditForm = () => {
           >
             <Select
               className="w-[200px]"
-              options={categories.map((cat: CategoriesType) => ({
+              options={categories?.map((cat: CategoriesType) => ({
                 label: cat.name,
                 value: cat.name,
               }))}
